@@ -21,8 +21,8 @@
 # NOTE: several fields are redundant, reflecting early experimentation, and will disappear in later versions
 mutable struct HTBparam{T<:AbstractFloat, I<:Int,R<:Real}
 
-    T::Type 
-    I::Type
+    T::Type{T}             # -- internal. NB: T::Type is a generic type and leads to type instability if param.T is used in the code.
+    I::Type{I}             # -- internal.         " 
     loss::Symbol             # loss function (log-likelihood)
     losscv::Symbol
     modality::Symbol
